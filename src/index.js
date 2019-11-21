@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-import './stylesheets/output.css';
 import Arena from './components/arena';
-// import App from './App';
-// import Board from './components/board';
+import './stylesheets/output.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Arena />, document.getElementById('root'));

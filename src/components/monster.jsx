@@ -4,16 +4,41 @@ export default class Monster extends React.Component {
   constructor(props) {
     super(props);
     this.name = 'Goblin';
-    this.hitpoints = 20;
+    this.maxHp = 10;
     this.class = 'warrior';
-    this.initiative = 5;
-    this.toHit = 10;
-    this.attack = [['punch', 5]];
-    this.image = 'https://icon-library.net/images/goblin-icon/goblin-icon-1.jpg';
+    this.initiative = 6;
+    this.toHit = 8;
+    this.attack = [['punch', 3]];
+    this.image = 'https://guildberkeley.files.wordpress.com/2017/09/goblin-king.jpg';
+    this.state = {
+      hp: 10
+    }
+
+    this.take = this.take.bind(this);
   }
+
+  take(num) {
+    let hpTotal = this.state.hp - num;
+    this.setState({'hp': hpTotal});
+  }
+
+  // componentWillMount(){
+  //   debugger;
+  //   console.log('will mount');
+  // }
   render() {
     return (
-      <h1>This is the monster class!</h1>
+      <div className="player">
+        <h3>Name: {this.name}</h3>
+        <img className='player-img' src={this.image} alt="" />
+        <ul className='player-attr'>
+          <li>Class: {this.class}</li>
+          <li>Hit Points: {this.state.hp}/{this.maxHp}</li>
+          <li>Initiative: {this.initiative}</li>
+          <li>To Hit: {this.toHit}</li>
+          <li>Attack(s): {this.attack}</li>
+        </ul>
+      </div>
     );
   }
 }

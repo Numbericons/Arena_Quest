@@ -12,7 +12,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sass": "sass --watch src/stylesheets/input.scss:src/stylesheets/output.css"
+    "sass": "sass --watch src/stylesheets/input.scss:src/stylesheets/output.css",
+    "dev": "concurrently \"npm run sass\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +29,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "regenerator-runtime": "^0.13.3"
   }
 }
