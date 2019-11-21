@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Game from './components/game';
+// import './index.css';
+import './stylesheets/output.css';
+import Arena from './components/arena';
 // import App from './App';
 // import Board from './components/board';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+ReactDOM.render(<Arena />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

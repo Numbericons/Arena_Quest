@@ -1,0 +1,9 @@
+.arena{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  &-header{
+    font-size: 28px;
+    color: red;
+  }
+}
