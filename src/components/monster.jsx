@@ -9,10 +9,10 @@ export default class Monster extends React.Component {
     this.initiative = 6;
     this.toHit = 8;
     this.attack = [['punch', 3]];
-    this.image = 'https://guildberkeley.files.wordpress.com/2017/09/goblin-king.jpg';
-    this.state = {
-      hp: 10
-    }
+    this.image = 'https://cdn3.iconfinder.com/data/icons/mythical-creatures-color/300/07-512.png';
+    // this.state = {
+    //   'hp': this.props.hp
+    // }
 
     this.take = this.take.bind(this);
   }
@@ -22,10 +22,6 @@ export default class Monster extends React.Component {
     this.setState({'hp': hpTotal});
   }
 
-  // componentWillMount(){
-  //   debugger;
-  //   console.log('will mount');
-  // }
   render() {
     return (
       <div className="player">
@@ -33,7 +29,7 @@ export default class Monster extends React.Component {
         <img className='player-img' src={this.image} alt="" />
         <ul className='player-attr'>
           <li>Class: {this.class}</li>
-          <li>Hit Points: {this.state.hp}/{this.maxHp}</li>
+          <li>Hit Points: {this.props.hp}/{this.maxHp}</li>
           <li>Initiative: {this.initiative}</li>
           <li>To Hit: {this.toHit}</li>
           <li>Attack(s): {this.attack}</li>

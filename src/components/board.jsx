@@ -1,12 +1,19 @@
 import React from 'react';
+import Human from './human';
+import Monster from './monster';
 
 export default class Board extends React.Component {
   constructor(props) {
     super(props);
     this.currP = 0;
     this.attack = this.attack.bind(this);
-    this.player1 = React.createRef();
-    this.player2 = React.createRef();
+    this.state = {
+      p1Hp: this.props.p1Hp,
+      p1Attk: this.props.p1Attk,
+      p2Hp: this.props.p2Hp,
+      p2Attk: this.props.p2Attk,
+    }
+    // this.player1 = React.createRef();
   }
 
   oppPlayer() {
@@ -18,22 +25,20 @@ export default class Board extends React.Component {
   }
 
   attack() {
-    // let attacker = this.props.players[this.currP];
-    // let defender = this.props.players[this.oppPlayer()];
-    // let defender = this.props.player2
-    // defender.setState({'hp': 5});
-    // defender.take(5);
-    debugger
-    console.log(5);
+    if (this.currP === 0) {
+      this.setState({p2Hp: this.state.p2Hp - this.state.p1Attk})
+    } else {
+      this.setState({p1Hp: this.state.p1Hp - this.state.p2Attk})
+    }
   }
 
   render(){
-    debugger
     return (
       <div className="board">
         <div className="board-players">
-          {this.props.players[0].render()}
-          {this.props.players[1].render()}
+          < Human hp={this.state.p1Hp} attk={this.state.p1Attk}/>
+          < Monster hp={this.state.p2Hp} attk={this.state.p2Attk}/>
+          {/* {this.props.players[1].render()} */}
         </div>
         <div className="board-btn">
           <button className="board-btn-attk" onClick={this.attack}>Attack</button>
