@@ -13,7 +13,6 @@ export default class Board extends React.Component {
       p2Hp: this.props.p2Hp,
       p2Attk: this.props.p2Attk,
     }
-    // this.player1 = React.createRef();
   }
 
   oppPlayer() {
@@ -38,7 +37,6 @@ export default class Board extends React.Component {
         <div className="board-players">
           < Human hp={this.state.p1Hp} attk={this.state.p1Attk}/>
           < Monster hp={this.state.p2Hp} attk={this.state.p2Attk}/>
-          {/* {this.props.players[1].render()} */}
         </div>
         <div className="board-btn">
           <button className="board-btn-attk" onClick={this.attack}>Attack</button>
