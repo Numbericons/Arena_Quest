@@ -11,8 +11,11 @@ export default class Board extends React.Component {
       p1Hp: this.props.p1Hp,
       p1Attk: this.props.p1Attk,
       p1Ac: this.props.p1Ac,
+      p1Hit: this.props.p1Hit,
       p2Hp: this.props.p2Hp,
+      p2Attk: this.props.p2Attk,
       p2Ac: this.props.p2Ac,
+      p2Hit: this.props.p2Hit
     }
   }
 
@@ -25,10 +28,17 @@ export default class Board extends React.Component {
   }
 
   attack() {
+    debugger
+    let roll = Math.ceil(Math.random() * 20)
+
     if (this.currP === 0) {
-      this.setState({p2Hp: this.state.p2Hp - this.state.p1Attk})
+      if (roll >= 10 + this.state.p2Ac - this.state.p1Hit) {
+        this.setState({p2Hp: this.state.p2Hp - this.state.p1Attk})
+      }
     } else {
-      this.setState({p1Hp: this.state.p1Hp - this.state.p2Attk})
+      if (roll >= 10 + this.state.p1Ac - this.state.p2Hit) {
+        this.setState({p1Hp: this.state.p1Hp - this.state.p2Attk})
+      }
     }
   }
 
@@ -36,8 +46,8 @@ export default class Board extends React.Component {
     return (
       <div className="board">
         <div className="board-players">
-          < Human hp={this.state.p1Hp} attk={this.state.p1Attk} ac={this.state.p1Ac}/>
-          < Monster hp={this.state.p2Hp} attk={this.state.p2Attk} ac={this.state.p2Ac}/>
+          < Human hp={this.state.p1Hp} attk={this.state.p1Attk} ac={this.state.p1Ac} hit={this.state.p1Hit}/>
+          < Monster hp={this.state.p2Hp} attk={this.state.p2Attk} ac={this.state.p2Ac} hit={this.state.p2Hit}/>
         </div>
         <div className="board-btn">
           <button className="board-btn-attk" onClick={this.attack}>Attack</button>
