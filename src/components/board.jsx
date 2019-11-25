@@ -10,8 +10,9 @@ export default class Board extends React.Component {
     this.state = {
       p1Hp: this.props.p1Hp,
       p1Attk: this.props.p1Attk,
+      p1Ac: this.props.p1Ac,
       p2Hp: this.props.p2Hp,
-      p2Attk: this.props.p2Attk,
+      p2Ac: this.props.p2Ac,
     }
   }
 
@@ -35,11 +36,12 @@ export default class Board extends React.Component {
     return (
       <div className="board">
         <div className="board-players">
-          < Human hp={this.state.p1Hp} attk={this.state.p1Attk}/>
-          < Monster hp={this.state.p2Hp} attk={this.state.p2Attk}/>
+          < Human hp={this.state.p1Hp} attk={this.state.p1Attk} ac={this.state.p1Ac}/>
+          < Monster hp={this.state.p2Hp} attk={this.state.p2Attk} ac={this.state.p2Ac}/>
         </div>
         <div className="board-btn">
           <button className="board-btn-attk" onClick={this.attack}>Attack</button>
+          {/* <button className="board-btn-defend" onClick={this.defend}>Defend</button> */}
         </div>
       </div>
     );
