@@ -27,16 +27,19 @@ export default class Board extends React.Component {
     this.currP = this.oppPlayer();
   }
 
-  attack() {
-    debugger
-    let roll = Math.ceil(Math.random() * 20)
+  action(type){
 
+  }
+
+  attack() {
+    let d20 = Math.ceil(Math.random() * 20);
+    if (d20 === 0) d20 = 1;
     if (this.currP === 0) {
-      if (roll >= 10 + this.state.p2Ac - this.state.p1Hit) {
+      if (d20 >= 10 + this.state.p2Ac - this.state.p1Hit) {
         this.setState({p2Hp: this.state.p2Hp - this.state.p1Attk})
       }
     } else {
-      if (roll >= 10 + this.state.p1Ac - this.state.p2Hit) {
+      if (d20 >= 10 + this.state.p1Ac - this.state.p2Hit) {
         this.setState({p1Hp: this.state.p1Hp - this.state.p2Attk})
       }
     }
