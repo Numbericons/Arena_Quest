@@ -6,7 +6,6 @@ export default class Board extends React.Component {
   constructor(props) {
     super(props);
     this.currP = 0;
-    this.attack = this.attack.bind(this);
     this.state = {
       p1Hp: this.props.p1Hp,
       p1Attk: this.props.p1Attk,
@@ -17,6 +16,7 @@ export default class Board extends React.Component {
       p2Ac: this.props.p2Ac,
       p2Hit: this.props.p2Hit
     }
+    this.action = this.action.bind(this);
   }
 
   oppPlayer() {
@@ -28,7 +28,17 @@ export default class Board extends React.Component {
   }
 
   action(type){
-
+    debugger
+    if (type === 'attack') {
+      this.attack();
+      this.toggleCurrP();
+      this.compTurn();
+    }
+  }
+  
+  compTurn(){
+    this.attack();
+    this.toggleCurrP();
   }
 
   attack() {
@@ -53,7 +63,8 @@ export default class Board extends React.Component {
           < Monster hp={this.state.p2Hp} attk={this.state.p2Attk} ac={this.state.p2Ac} hit={this.state.p2Hit}/>
         </div>
         <div className="board-btn">
-          <button className="board-btn-attk" onClick={this.attack}>Attack</button>
+          <button className="board-btn-attk" onClick={this.action}>Attack</button>
+          <button className="new-btn" onClick={this.newHand}>NEW HAND</button>
           {/* <button className="board-btn-defend" onClick={this.defend}>Defend</button> */}
         </div>
       </div>
