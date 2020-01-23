@@ -38,7 +38,6 @@ export default class Board extends React.Component {
   }
 
   attack() {
-    debugger;
     let d20 = Math.ceil(Math.random() * 20);
     if (d20 === 0) d20 = 1;
     if (this.currP === 0) {
@@ -51,6 +50,10 @@ export default class Board extends React.Component {
       }
     }
     // this.reset();
+  }
+
+  defend(){
+    
   }
 
   render(){
