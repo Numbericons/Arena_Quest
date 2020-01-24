@@ -6,7 +6,7 @@ export default class Human extends React.Component {
     this.name = 'Fred';
     this.maxHp = 20;
     this.hp = 20;
-    this.class = 'warrior';
+    this.class = 'Warrior';
     this.initiative = 5;
     this.toHit = 10;
     this.attack = [['punch', 5]];
