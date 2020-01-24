@@ -31,7 +31,7 @@ export default class Monster extends React.Component {
           <li>Hit Points: {this.hp}/{this.maxHp}</li>
           <li>Initiative: {this.initiative}</li>
           <li>To Hit: {this.toHit}</li>
-          <li>Attack(s): {this.attack}</li>
+          <li>Attack(s): {this.attack[0][0]} - {this.attack[0][1]}dmg</li>
         </ul>
       </div>
     );

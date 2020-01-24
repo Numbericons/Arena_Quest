@@ -45,7 +45,7 @@ export default class Arena extends React.Component {
                 p2Hp={this.state.p2Hp} p2Attk={this.state.p2Atk} p2Ac={this.state.p1Ac} p2Hit={this.state.p2Hit}
 
         /> */}
-        <Board p1={player1} p2={player2}></Board>
+        <Board player1={player1} player2={player2}></Board>
       </div>
     )
   }
