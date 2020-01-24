@@ -17,6 +17,10 @@ export default class Arena extends React.Component {
     }
   }
 
+  attack(){
+    
+  }
+
   render() {
     return (
       <div className='arena'>
