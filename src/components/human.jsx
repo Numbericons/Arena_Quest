@@ -3,13 +3,14 @@ import React from 'react';
 export default class Human extends React.Component {
   constructor(props) {
     super(props);
+    this.maxHp = props.maxHp;
+    this.hp = props.hp;
+    this.toHit = props.toHit;
+    this.ac = props.ac;
+    this.attack = [['punch', props.attk]];
     this.name = 'Fred';
-    this.maxHp = 20;
-    this.hp = 20;
     this.class = 'Warrior';
     this.initiative = 5;
-    this.toHit = 10;
-    this.attack = [['punch', 5]];
     this.image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png'
   }
   
