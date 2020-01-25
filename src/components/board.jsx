@@ -16,7 +16,6 @@ export default class Board extends React.Component {
     //   p2Ac: this.props.p2Ac,
     //   p2Hit: this.props.p2Hit
     // }
-    this.attack = this.attack.bind(this);
   }
 
   oppPlayer() {
@@ -37,33 +36,15 @@ export default class Board extends React.Component {
     // this.toggleCurrP();
   }
 
-  attack() {
-    debugger;
-    let d20 = Math.ceil(Math.random() * 20);
-    if (d20 === 0) d20 = 1;
-    if (this.currP === 0) {
-      if (d20 >= 10 + this.state.p2Ac - this.state.p1Hit) {
-        this.setState({p2Hp: this.state.p2Hp - this.state.p1Attk})
-      }
-    } else {
-      if (d20 >= 10 + this.state.p1Ac - this.state.p2Hit) {
-        this.setState({p1Hp: this.state.p1Hp - this.state.p2Attk})
-      }
-    }
-    // this.reset();
-  }
-
   render(){
     return (
       <div className="board">
         <div className="board-players">
           {this.props.player1}
           {this.props.player2}
-          {/* < Human hp={this.state.p1Hp} attk={this.state.p1Attk} ac={this.state.p1Ac} hit={this.state.p1Hit}/> */}
-          {/* < Monster hp={this.state.p2Hp} attk={this.state.p2Attk} ac={this.state.p2Ac} hit={this.state.p2Hit}/> */}
         </div>
         <div className="board-btn">
-          <button className="board-btn-attk" onClick={this.attack}>Attack</button>
+          <button className="board-btn-attk" onClick={this.props.attack}>Attack</button>
           {/* <button className="board-btn-defend" onClick={this.defend}>Defend</button> */}
         </div>
       </div>
