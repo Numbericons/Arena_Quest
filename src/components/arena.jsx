@@ -32,7 +32,9 @@ export default class Arena extends React.Component {
     let d20 = Math.ceil(Math.random() * 20);
     if (d20 === 0) d20 = 1;
     if (d20 >= 10 + this.state.p1Ac - this.state.p2ToHit) {
-      this.setState({ p1Hp: this.state.p1Hp - this.state.p2Attk })
+      const play1Hp = this.state.p1Hp - this.state.p2Attk;
+      this.setState({ p1Hp: play1Hp })
+      this.death('human', play1Hp);
     }
   }
 
@@ -42,22 +44,39 @@ export default class Arena extends React.Component {
     let d20 = Math.ceil(Math.random() * 20);
     if (d20 === 0) d20 = 1;
     if (d20 >= 10 + this.state.p2Ac - this.state.p1ToHit) {
-      this.setState({ p2Hp: this.state.p2Hp - this.state.p1Attk })
+      const play2Hp = this.state.p2Hp - this.state.p1Attk;
+      this.setState({ p2Hp: play2Hp })
+      if (!this.death('comp', play2Hp)) this.compAttack()      
+    } else {
+      this.compAttack();
     }
-    this.compAttack();
   }
 
   defend(){
-    if (!this.state.p1defended) this.setState({ p1Ac: this.state.p1Ac + 5 })
-    this.setState({ p1defended: true })
+    if (!this.state.p1defended) this.setState({ p1Ac: this.state.p1Ac + 5 });
+    this.setState({ p1defended: true });
     this.compAttack();
   }
-
+ 
   human(){
     return <Human 
             maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
             ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}> 
           </Human>
+  }
+
+  death(defender, hp){
+    debugger
+    if (defender === 'human'){
+      if (hp <= 0) {
+        alert('dead human!')
+      }
+    } else {
+      if (hp <= 0) {
+        alert('dead comp!')
+      }
+    }
+    return hp <= 0;
   }
  
   monster(){
