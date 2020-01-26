@@ -45,7 +45,7 @@ export default class Board extends React.Component {
         </div>
         <div className="board-btn">
           <button className="board-btn-attk" onClick={this.props.attack}>Attack</button>
-          {/* <button className="board-btn-defend" onClick={this.defend}>Defend</button> */}
+          <button className="board-btn-defend" onClick={this.props.defend}>Defend</button>
         </div>
       </div>
     );

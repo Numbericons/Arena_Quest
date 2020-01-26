@@ -14,15 +14,18 @@ export default class Arena extends React.Component {
       p1Ac: 2,
       p1ToHit: 1,
       p1init: 6,
+      p1defended: false,
       p2MaxHp: 10,
       p2Hp: 10,
       p2Attk: 3,
       p2Ac: 1,
       p2ToHit: 0,
       p2init: 7,
+      p2defended: false,
       currP: 0
     }
     this.attack = this.attack.bind(this);
+    this.defend = this.defend.bind(this);
   }
 
   compAttack(){
@@ -34,11 +37,19 @@ export default class Arena extends React.Component {
   }
 
   attack(){
+    if (this.state.p1defended) this.setState({ p1Ac: this.state.p1Ac - 5 });
+    this.setState({ p1defended: false });
     let d20 = Math.ceil(Math.random() * 20);
     if (d20 === 0) d20 = 1;
     if (d20 >= 10 + this.state.p2Ac - this.state.p1ToHit) {
       this.setState({ p2Hp: this.state.p2Hp - this.state.p1Attk })
     }
+    this.compAttack();
+  }
+
+  defend(){
+    if (!this.state.p1defended) this.setState({ p1Ac: this.state.p1Ac + 5 })
+    this.setState({ p1defended: true })
     this.compAttack();
   }
 
@@ -64,7 +75,7 @@ export default class Arena extends React.Component {
         <div className='arena-header'>
           <h1 className='arena-header-text'>Arena Quest</h1>
         </div>
-        <Board player1={player1} player2={player2} attack={this.attack}></Board>
+        <Board player1={player1} player2={player2} attack={this.attack} defend={this.defend}></Board>
       </div>
     )
   }
