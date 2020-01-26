@@ -13,36 +13,47 @@ export default class Arena extends React.Component {
       p1Attk: 5,
       p1Ac: 2,
       p1ToHit: 1,
+      p1init: 6,
       p2MaxHp: 10,
       p2Hp: 10,
       p2Attk: 3,
       p2Ac: 1,
       p2ToHit: 0,
+      p2init: 7,
       currP: 0
     }
     this.attack = this.attack.bind(this);
   }
 
-  attack(){
+  compAttack(){
     let d20 = Math.ceil(Math.random() * 20);
     if (d20 === 0) d20 = 1;
-    if (this.state.currP === 0) {
-      if (d20 >= 10 + this.state.p2Ac - this.state.p1ToHit) {
-        this.setState({ p2Hp: this.state.p2Hp - this.state.p1Attk })
-      }
-    } else {
-      if (d20 >= 10 + this.state.p1Ac - this.state.p2ToHit) {
-        this.setState({ p1Hp: this.state.p1Hp - this.state.p2Attk })
-      }
+    if (d20 >= 10 + this.state.p1Ac - this.state.p2ToHit) {
+      this.setState({ p1Hp: this.state.p1Hp - this.state.p2Attk })
     }
   }
 
-  human(){
-    return <Human maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk} ac={this.state.p1Ac} toHit={this.state.p2ToHit}></Human>
+  attack(){
+    let d20 = Math.ceil(Math.random() * 20);
+    if (d20 === 0) d20 = 1;
+    if (d20 >= 10 + this.state.p2Ac - this.state.p1ToHit) {
+      this.setState({ p2Hp: this.state.p2Hp - this.state.p1Attk })
+    }
+    this.compAttack();
   }
 
+  human(){
+    return <Human 
+            maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
+            ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}> 
+          </Human>
+  }
+ 
   monster(){
-    return <Monster maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk} ac={this.state.p2Ac} toHit={this.state.p2ToHit}></Monster>
+    return <Monster
+            maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk} 
+            ac={this.state.p2Ac} toHit={this.state.p2ToHit} init={this.state.p2Init}>
+          </Monster>
   }
 
   render() {

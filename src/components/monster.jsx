@@ -8,7 +8,7 @@ export default function Monster(props) {
     let attack = [['punch', props.attk]];
     let name = 'Goblin';
     let playerClass = 'warrior';
-    let initiative = 6;
+    let init = props.init;
     let image = 'https://cdn3.iconfinder.com/data/icons/mythical-creatures-color/300/07-512.png';
     
     return (
@@ -18,8 +18,9 @@ export default function Monster(props) {
         <ul className='player-attr'>
           <li>Class: {playerClass}</li>
           <li>Hit Points: {hp}/{maxHp}</li>
-          <li>Initiative: {initiative}</li>
+          <li>Initiative: {init}</li>
           <li>To Hit: {toHit}</li>
+          <li>AC: {ac}</li>
           <li>Attack(s): {attack[0][0]} - {attack[0][1]}dmg</li>
         </ul>
       </div>
