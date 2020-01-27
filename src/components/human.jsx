@@ -1,15 +1,17 @@
 import React from 'react';
 
 export default function Human(props) {
-  let maxHp = props.maxHp;
-  let hp = props.hp;
-  let toHit = props.toHit;
-  let ac = props.ac;
-  let attack = [['punch', props.attk]];
-  let name = 'Fred';
-  let playerClass = 'warrior';
-  let init = props.init;
-  let image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
+  const maxHp = props.maxHp;
+  const hp = props.hp;
+  const toHit = props.toHit;
+  const ac = props.ac;
+  const cdMax = props.cdMax;
+  const cdCurr = props.cdCurr;
+  const attack = [['punch', props.attk]];
+  const name = 'Fred';
+  const playerClass = 'warrior';
+  const init = props.init;
+  const image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
 
   return (
     <div className="player">
@@ -22,6 +24,7 @@ export default function Human(props) {
         <li>To Hit: {toHit}</li>
         <li>AC: {ac}</li>
         <li>Attack(s): {attack[0][0]} - {attack[0][1]}dmg</li>
+        <li>Special Cooldown: {cdCurr}({cdMax}max)</li>
       </ul>
     </div>
   );
