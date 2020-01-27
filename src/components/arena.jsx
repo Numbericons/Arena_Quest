@@ -15,7 +15,7 @@ export default class Arena extends React.Component {
       p1defended: false,
       p1CDMax: 2,
       p1CDCurr: 0,
-      p1Special: ['tacs',10],
+      p1Special: ['Tacs',10],
       p2MaxHp: 10,
       p2Hp: 10,
       p2Attk: 3,
@@ -27,7 +27,7 @@ export default class Arena extends React.Component {
     }
     this.attack = this.attack.bind(this);
     this.defend = this.defend.bind(this);
-    this.special = this.special.bind(this);
+    this.special1 = this.special1.bind(this);
   }
 
   compAttack(){
@@ -72,7 +72,7 @@ export default class Arena extends React.Component {
       }
     } else {
       if (hp <= 0) {
-        alert('You vanquished your foes and subsumed their titles, lands, and debts. From a mere stable boy, you are now the Champion of the Arena!')
+        alert('You vanquished your foes and subsumed their titles, lands, and debts. Rising from birth as a mere stable boy, you are now the Champion of the Arena!')
       }
     }
     return hp <= 0;
@@ -82,7 +82,7 @@ export default class Arena extends React.Component {
     return <Human
       maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
       ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}
-      cdMax={this.state.p1CDMax} cdCurr={this.state.p1CDCurr}>
+      s1name={this.state.p1Special[0]} cdMax={this.state.p1CDMax} cdCurr={this.state.p1CDCurr}>
     </Human>
   }
  
@@ -95,7 +95,7 @@ export default class Arena extends React.Component {
           </Monster>
   }
 
-  special(){
+  special1(){
     if (this.state.p1defended) this.setState({ p1Ac: this.state.p1Ac - 5 });
     this.setState({ p1defended: false });
     let d20 = Math.ceil(Math.random() * 20);
@@ -113,13 +113,13 @@ export default class Arena extends React.Component {
   render() {
     const player1 = this.human();
     const player2 = this.monster();
-    const special = this.state.p1CDCurr === 0 ? this.special : null;
+    const special1 = this.state.p1CDCurr === 0 ? this.special1 : null;
     return (
       <div className='arena'>
         <div className='arena-header'>
           <h1 className='arena-header-text'>Arena Quest</h1>
         </div>
-        <Board player1={player1} player2={player2} attack={this.attack} defend={this.defend} special={special}></Board>
+        <Board player1={player1} player2={player2} attack={()=>this.attack()} defend={this.defend} special1={special1}></Board>
       </div>
     )
   }

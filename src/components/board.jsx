@@ -46,7 +46,7 @@ export default class Board extends React.Component {
         <div className="board-btn">
           <button className="board-btn-attk" onClick={this.props.attack}>Attack</button>
           <button className="board-btn-defend" onClick={this.props.defend}>Defend</button>
-          {this.props.special && <button className="board-btn-special" onClick={this.props.special}>Special</button>}
+          {this.props.special1 && <button className="board-btn-special" onClick={this.props.special1}>Special 1</button>}
         </div>
       </div>
     );
