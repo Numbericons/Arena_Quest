@@ -13,9 +13,10 @@ export default class Arena extends React.Component {
       p1ToHit: 1,
       p1init: 6,
       p1defended: false,
-      p1CDMax: 2,
-      p1CDCurr: 0,
-      p1Special: ['Tacs',10],
+      // p1CDMax: 2,
+      // p1CDCurr: 0,
+      p1Specials: [[true, 'Tacs', 2, 0, 10],  //[active?, name, cdMax, cdCurrent, Damage]
+                  [true, 'Brick', 3, 0, 99], [false, 'Whip', 4, 0, 3]],
       p2MaxHp: 10,
       p2Hp: 10,
       p2Attk: 3,
@@ -27,7 +28,7 @@ export default class Arena extends React.Component {
     }
     this.attack = this.attack.bind(this);
     this.defend = this.defend.bind(this);
-    this.special1 = this.special1.bind(this);
+    this.special = this.special.bind(this);
   }
 
   compAttack(){
@@ -82,7 +83,7 @@ export default class Arena extends React.Component {
     return <Human
       maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
       ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}
-      s1name={this.state.p1Special[0]} cdMax={this.state.p1CDMax} cdCurr={this.state.p1CDCurr}>
+      s1name={this.state.p1Specials} cdMax={this.state.p1CDMax} cdCurr={this.state.p1CDCurr}>
     </Human>
   }
  
@@ -95,31 +96,38 @@ export default class Arena extends React.Component {
           </Monster>
   }
 
-  special1(){
+  special(idx){
     if (this.state.p1defended) this.setState({ p1Ac: this.state.p1Ac - 5 });
     this.setState({ p1defended: false });
     let d20 = Math.ceil(Math.random() * 20);
     if (d20 === 0) d20 = 1;
     if (d20 >= 10 + this.state.p2Ac - this.state.p1ToHit) {
-      const play2Hp = this.state.p2Hp - this.state.p1Special[1];
+      const play2Hp = this.state.p2Hp - this.state.p1Specials[idx][4];
       this.setState({ p2Hp: play2Hp })
       if (!this.death('comp', play2Hp)) this.compAttack()
     } else {
       this.compAttack();
     }
-    this.setState({ p1CDCurr: this.state.p1CDMax });
+    let specials = this.state.p1Specials;
+    specials[idx][3] = specials[idx][2];
+    this.setState({ p1Specials: specials });
   }
 
   render() {
     const player1 = this.human();
     const player2 = this.monster();
-    const special1 = this.state.p1CDCurr === 0 ? this.special1 : null;
+    const special1 = this.state.p1Specials[0][0] ? this.special : null;
+    const special2 = this.state.p1Specials[1][0] ? this.special : null;
+    const special3 = this.state.p1Specials[2][0] ? this.special : null;
     return (
       <div className='arena'>
         <div className='arena-header'>
           <h1 className='arena-header-text'>Arena Quest</h1>
         </div>
-        <Board player1={player1} player2={player2} attack={()=>this.attack()} defend={this.defend} special1={special1}></Board>
+        <Board player1={player1} player2={player2} attack={()=>this.attack()} 
+          defend={this.defend} //special1={special1}
+          >
+        </Board>
       </div>
     )
   }
