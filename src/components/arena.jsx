@@ -66,7 +66,6 @@ export default class Arena extends React.Component {
   }
 
   death(defender, hp){
-    debugger
     if (defender === 'human'){
       if (hp <= 0) {
         alert('Death has come too early for the stable boy. Brave and bright, his tireless efforts soaked like his blood into the unforgiving floor of the arena.')
@@ -91,7 +90,6 @@ export default class Arena extends React.Component {
     return <Monster
             maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk}
             ac={this.state.p2Ac} toHit={this.state.p2ToHit} init={this.state.p2Init}
-            // cdMax={this.state.p2CDMax} cdCurr={this.state.p2CDCurr}
             >
           </Monster>
   }
