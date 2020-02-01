@@ -13,8 +13,6 @@ export default class Arena extends React.Component {
       p1ToHit: 1,
       p1init: 6,
       p1defended: false,
-      // p1CDMax: 2,
-      // p1CDCurr: 0,
       p1Specials: [[true, 'Tacs', 2, 0, 10],  //[active?, name, cdMax, cdCurrent, Damage]
                   [true, 'Brick', 3, 0, 99], [false, 'Whip', 4, 0, 3]],
       p2MaxHp: 10,
@@ -123,8 +121,8 @@ export default class Arena extends React.Component {
           <h1 className='arena-header-text'>Arena Quest</h1>
         </div>
         <Board player1={player1} player2={player2} attack={()=>this.attack()} 
-          defend={this.defend} //special1={special1}
-          >
+          defend={this.defend} special1={special1} special2={special2} special3={special3}
+        >
         </Board>
       </div>
     )
