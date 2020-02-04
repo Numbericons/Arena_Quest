@@ -80,7 +80,8 @@ export default class Arena extends React.Component {
     return <Human
       maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
       ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}
-      s1name={this.state.p1Specials} cdMax={this.state.p1CDMax} cdCurr={this.state.p1CDCurr}>
+      specials={this.state.p1Specials}
+      >
     </Human>
   }
  
@@ -88,6 +89,7 @@ export default class Arena extends React.Component {
     return <Monster
             maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk}
             ac={this.state.p2Ac} toHit={this.state.p2ToHit} init={this.state.p2Init}
+            specials= {this.state.s2specials}
             >
           </Monster>
   }

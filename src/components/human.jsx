@@ -5,9 +5,7 @@ export default function Human(props) {
   const hp = props.hp;
   const toHit = props.toHit;
   const ac = props.ac;
-  const s1name = props.s1name;
-  const cdMax = props.cdMax;
-  const cdCurr = props.cdCurr;
+  const specials = props.specials;
   const attack = [['punch', props.attk]];
   const name = 'Fred';
   const playerClass = 'warrior';
@@ -27,7 +25,7 @@ export default function Human(props) {
         <li>Attack(s): {attack[0][0]} - {attack[0][1]}dmg</li>
         <li>Specials:</li>
         <ol>
-        <li>{s1name} -> Cooldown: {cdCurr}/{cdMax}</li>
+          <li>{specials[1]} -> Cooldown: {specials[2]}/{specials[3]}</li>
         </ol>
       </ul>
     </div>
