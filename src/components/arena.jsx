@@ -76,20 +76,40 @@ export default class Arena extends React.Component {
     return hp <= 0;
   }
 
+  specSubArr(){
+
+  }
+
+  specialArr(player){
+    let retArr = [];
+
+    if (player === 'human') {
+      for (let i=0; this.state.p2special1; i++){
+        
+      }
+    } else {
+
+    }
+
+    return retArr;
+  }
+
   human() {
+    let specials = specialArr('human');
     return <Human
       maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
       ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}
-      specials={this.state.p1Specials}
+      specials={specials}
       >
     </Human>
   }
  
   monster(){
+    let specials = specialArr('monster');
     return <Monster
             maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk}
             ac={this.state.p2Ac} toHit={this.state.p2ToHit} init={this.state.p2Init}
-            specials= {this.state.s2specials}
+            // specials= {this.state.p2specials}
             >
           </Monster>
   }
