@@ -83,12 +83,11 @@ export default class Arena extends React.Component {
   specialArr(player){
     let retArr = [];
 
-    if (player === 'human') {
-      for (let i=0; this.state.p2special1; i++){
-        
+    let specials = player === 'human' ? this.state.p2special1 : this.state.p2special1;
+    for (let i=0; i < specials.length; i++){
+      if (specials[i]){
+        retArr.push(this.specSubArr(specials[i]));
       }
-    } else {
-
     }
 
     return retArr;
