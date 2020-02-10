@@ -78,8 +78,7 @@ export default class Arena extends React.Component {
 
   specialArr(player){
     let retArr = [];
-    let specials = player === 'human' ? this.state.p1specials : this.state.p2specials;
-
+    let specials = player === 'human' ? this.state.p1Specials : this.state.p2Specials;
     for (let i=0; i < specials.length; i++){
       if (specials[0][i]){
         retArr.push(specials[0][i]);
@@ -100,7 +99,7 @@ export default class Arena extends React.Component {
   }
  
   monster(){
-    let specials = this.specialArr('monster');
+    // let specials = this.specialArr('monster');
     return <Monster
             maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk}
             ac={this.state.p2Ac} toHit={this.state.p2ToHit} init={this.state.p2Init}
@@ -132,14 +131,14 @@ export default class Arena extends React.Component {
     const special1 = this.state.p1Specials[0][0] ? this.special : null;
     const special2 = this.state.p1Specials[1][0] ? this.special : null;
     const special3 = this.state.p1Specials[2][0] ? this.special : null;
+
     return (
       <div className='arena'>
         <div className='arena-header'>
           <h1 className='arena-header-text'>Arena Quest</h1>
         </div>
         <Board player1={player1} player2={player2} attack={()=>this.attack()} 
-          defend={this.defend} special1={special1} special2={special2} special3={special3}
-        >
+               defend={this.defend} special1={special1} special2={special2} special3={special3}>
         </Board>
       </div>
     )
