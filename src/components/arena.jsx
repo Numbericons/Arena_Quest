@@ -90,7 +90,7 @@ export default class Arena extends React.Component {
   }
 
   human() {
-    let specials = specialArr('human');
+    let specials = this.specialArr('human');
     return <Human
       maxHp={this.state.p1MaxHp} hp={this.state.p1Hp} attk={this.state.p1Attk}
       ac={this.state.p1Ac} toHit={this.state.p2ToHit} init={this.state.p1Init}
@@ -100,7 +100,7 @@ export default class Arena extends React.Component {
   }
  
   monster(){
-    let specials = specialArr('monster');
+    let specials = this.specialArr('monster');
     return <Monster
             maxHp={this.state.p2MaxHp} hp={this.state.p2Hp} attk={this.state.p2Attk}
             ac={this.state.p2Ac} toHit={this.state.p2ToHit} init={this.state.p2Init}
