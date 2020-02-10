@@ -5,12 +5,14 @@ export default function Human(props) {
   const hp = props.hp;
   const toHit = props.toHit;
   const ac = props.ac;
-  const specials = props.specials;
   const attack = [['punch', props.attk]];
   const name = 'Fred';
   const playerClass = 'warrior';
   const init = props.init;
   const image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
+  const specials = props.specials.map((special) => {
+    return `${special[1]} test value ${specials[2]}`
+  });
 
   return (
     <div className="player">
