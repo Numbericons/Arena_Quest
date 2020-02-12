@@ -36,9 +36,6 @@ export default function Human(props) {
 }
 
 
-
-// import React from 'react';
-
 // export default class Human extends React.Component {
 //   constructor(props) {
 //     super(props);
