@@ -28,7 +28,6 @@ export default function Human(props) {
         <li>Specials:</li>
         <ol>
           <li>{specials}</li>
-          {/* <li>{specials[1]} -> Cooldown: {specials[2]}/{specials[3]}</li> */}
         </ol>
       </ul>
     </div>
