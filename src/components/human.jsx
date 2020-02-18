@@ -11,7 +11,7 @@ export default function Human(props) {
   const init = props.init;
   const image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
   const specials = props.specials.map((special) => {
-    return `${special[1]} test value ${special[2]}`
+    return `${special[1]} Damage: ${special[4]} Cooldown: ${special[3]}/${special[2]}`
   });
 
   return (
