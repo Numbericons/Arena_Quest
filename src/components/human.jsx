@@ -11,9 +11,8 @@ export default function Human(props) {
   const playerClass = 'warrior';
   const init = props.init;
   const image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
-  const specials = props.specials.map((special) => {
-    return <Special special={special}></Special>
-    // return `${special[1]} Damage: ${special[4]} Cooldown: ${special[3]}/${special[2]}`
+  const specials = props.specials.map((special, i) => {
+    return <Special special={special} key={i}></Special>
   });
   return (
     <div className="player">
@@ -28,7 +27,7 @@ export default function Human(props) {
         <li>Attack(s): {attack[0][0]} - {attack[0][1]}dmg</li>
         <li>Specials:</li>
         <ol>
-          <li>{specials}</li>
+          {specials}
         </ol>
       </ul>
     </div>
