@@ -1,4 +1,5 @@
 import React from 'react';
+import Special from './special';
 
 export default function Human(props) {
   const maxHp = props.maxHp;
@@ -11,9 +12,9 @@ export default function Human(props) {
   const init = props.init;
   const image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
   const specials = props.specials.map((special) => {
-    return `${special[1]} Damage: ${special[4]} Cooldown: ${special[3]}/${special[2]}`
+    return <Special special={special}></Special>
+    // return `${special[1]} Damage: ${special[4]} Cooldown: ${special[3]}/${special[2]}`
   });
-
   return (
     <div className="player">
       <h3>Name: {name}</h3>
