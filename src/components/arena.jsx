@@ -125,21 +125,29 @@ export default class Arena extends React.Component {
     this.setState({ p1Specials: specials });
   }
 
+  selectSpecials(){
+    const specials = this.state.p1Specials;
+    let arr = [];
+
+    for (let i=0; i<specials.length;i++){
+      arr.push(specials[i][0] ? true : false);
+    }
+
+    return arr;
+  }
+
   render() {
     const player1 = this.human();
     const player2 = this.monster();
-    const special1 = this.state.p1Specials[0][0] ? this.special : null;
-    const special2 = this.state.p1Specials[1][0] ? this.special : null;
-    const special3 = this.state.p1Specials[2][0] ? this.special : null;
-
+    const specArr = this.selectSpecials();
     return (
       <div className='arena'>
         <div className='arena-header'>
           <h1 className='arena-header-text'>Arena Quest</h1>
         </div>
-        <Board player1={player1} player2={player2} attack={()=>this.attack()} 
+        <Board player1={player1} player2={player2} attack={() => this.attack()} defend={this.defend}
               //  defend={this.defend} special1={special1} special2={special2} special3={special3}>
-              defend={this.defend} special1={()=>this.special(1)} special2={special2} special3={special3}>
+               specArr={specArr} special1={() => this.special(1)} special2={() => this.special(2)} special3={() => this.special(3)}>
         </Board>
       </div>
     )
