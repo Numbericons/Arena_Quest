@@ -11,7 +11,7 @@ export default class Arena extends React.Component {
       p1MaxHp: 20, p1Hp: 20, p1Attk: 5,
       p1Ac: 2,
       p1ToHit: 1,
-      p1init: 6,
+      p1Init: 6,
       p1defended: false,
       p1Specials: [[true, 'Tacs', 2, 0, 10],  //[active?, name, cdMax, cdCurrent, Damage]
                   [true, 'Brick', 3, 0, 99], [false, 'Whip', 4, 0, 3],],
@@ -20,7 +20,7 @@ export default class Arena extends React.Component {
       p2Attk: 3,
       p2Ac: 1,
       p2ToHit: 0,
-      p2init: 7,
+      p2Init: 7,
       p2defended: false,
       currP: 0
     }

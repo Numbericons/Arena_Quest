@@ -6,34 +6,6 @@ export default class Board extends React.Component {
   constructor(props) {
     super(props);
     this.currP = 0;
-    // this.state = {
-    //   p1Hp: this.props.p1Hp,
-    //   p1Attk: this.props.p1Attk,
-    //   p1Ac: this.props.p1Ac,
-    //   p1Hit: this.props.p1Hit,
-    //   p2Hp: this.props.p2Hp,
-    //   p2Attk: this.props.p2Attk,
-    //   p2Ac: this.props.p2Ac,
-    //   p2Hit: this.props.p2Hit
-    // }
-  }
-
-  oppPlayer() {
-    return (this.currP === 0) ? 1 : 0;
-  }
-
-  toggleCurrP(){
-    this.currP = this.oppPlayer();
-  }
-
-  reset(){
-    this.toggleCurrP();
-    this.compTurn();
-  }
-  
-  compTurn(){
-    // this.attack();
-    // this.toggleCurrP();
   }
 
   render(){
