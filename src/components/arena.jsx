@@ -66,10 +66,15 @@ export default class Arena extends React.Component {
   death(defender, hp){
     if (defender === 'human'){
       if (hp <= 0) {
-        alert('Death has come too early for the stable boy. Brave and bright, his tireless efforts soaked like his blood into the unforgiving floor of the arena.')
+        alert('Death has come too early for the stable boy. Brave and bright, his tireless efforts soaked like his blood into the unforgiving floor of the arena.');
       }
     } else {
       if (hp <= 0) {
+        //check if end of line to show alert
+        //else
+        //alert player/prompt for improvments/treasures
+        //render next enemy
+        //   
         alert('You vanquished your foes and subsumed their titles, lands, and debts. Rising from birth as a mere stable boy, you are now the Champion of the Arena!')
       }
     }
