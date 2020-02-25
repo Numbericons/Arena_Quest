@@ -72,7 +72,7 @@ export default class Arena extends React.Component {
       if (hp <= 0) {
         //check if end of line to show alert
         //else
-        //alert player/prompt for improvments/treasures
+        //alert player/prompt for improvements/treasures
         //render next enemy
         //   
         alert('You vanquished your foes and subsumed their titles, lands, and debts. Rising from birth as a mere stable boy, you are now the Champion of the Arena!')

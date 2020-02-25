@@ -1,3 +1,21 @@
+Interface:
+  Option 1: Portraits of both fighters
+  Option 2: Animation of fighters
+  Option 3: Enemy portrait UI
+
+Plot:
+  Decisions with silly prompts give different builds
+
+Render Enemy
+  Give Attack/Def/Special Options
+
+After Enemy Death:
+  check if end of line to show alert
+  else
+  alert player/prompt for improvements/treasures
+  render next enemy
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
