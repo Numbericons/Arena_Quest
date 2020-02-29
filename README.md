@@ -15,6 +15,8 @@ After Enemy Death:
   alert player/prompt for improvements/treasures
   render next enemy
 
+  Items:
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
