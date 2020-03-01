@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "concurrently": "^5.1.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "^3.3.0"
+    "react-scripts": "^3.3.0",
+    "sass": "^1.26.2"
   },
   "scripts": {
     "start": "react-scripts start",
