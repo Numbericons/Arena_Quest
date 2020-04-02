@@ -11,8 +11,8 @@ export default function Human(props) {
   const playerClass = 'warrior';
   const init = props.init;
   const image = 'https://wiki.guildwars2.com/images/thumb/5/56/Warrior_04_concept_art.png/350px-Warrior_04_concept_art.png';
-  const specials = props.specials.map((special, i) => {
-    return <Special special={special} key={i}></Special>
+  const specials = props.specials.map((special, key) => {
+    return <Special special={special} key={key}></Special>
   });
   return (
     <div className="player">
